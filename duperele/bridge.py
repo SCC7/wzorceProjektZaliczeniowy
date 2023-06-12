@@ -44,6 +44,7 @@ def main():
     print('_' * 30)
 
     locals_fetcher = LocalFileFetcher()
+    locals_fetcher.fetch('file.txt')
     iface = ResourceContent(locals_fetcher)
     iface.show_content('file.txt')
 

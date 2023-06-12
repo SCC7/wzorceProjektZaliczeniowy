@@ -4,26 +4,30 @@ import abc
 # bridge
 class napoj:
 
-    def __init__(self, implementation):
-        self._implementation = implementation;
+    def __init__(self, imp):
+        self._imp = imp
 
     def zdefiniuj_wymagania(self):
-        self._implementation.zdefiniuj_wymagania();
+        return self._imp.zdefiniuj_wymagania();
 
     def wykonaj_pierwszy_krok(self, ilosc):
-        self._implementation.wykonaj_pierwszy_krok();
+        return self._imp.wykonaj_pierwszy_krok(ilosc);
 
     def wykonaj_drugi_krok(self, ilosc):
-        self._implementation.wykonaj_drugi_krok();
+        return self._imp.wykonaj_drugi_krok(ilosc);
 
     def wykonaj_trzeci_krok(self, ilosc):
-        self._implementation.wykonaj_trzeci_krok();
+        return self._imp.wykonaj_trzeci_krok(ilosc);
 
     def podaj_nazwe(self):
-        self._implementation.podaj_nazwe();
+        return self._imp.nazwa();
 
     def podaj_rodzaj(self):
-        self._implementation.podaj_rodzaj();
+        return self._imp.rodzaj();
+
+    def podaj_rozmiar(self, rozmiar_napoju):
+        return self._imp.rozmiar(rozmiar_napoju);
+
 
 # implementacja abstrakcyjna
 class napojPrzepis(metaclass=abc.ABCMeta):
@@ -44,9 +48,13 @@ class napojPrzepis(metaclass=abc.ABCMeta):
         pass
 
     @abc.abstractmethod
-    def podaj_nazwe(self):
+    def nazwa(self):
         pass
 
     @abc.abstractmethod
-    def podaj_rodzaj(self):
+    def rodzaj(self):
+        pass
+
+    @abc.abstractmethod
+    def rozmiar(self, rozmiar):
         pass

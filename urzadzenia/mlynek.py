@@ -1,18 +1,17 @@
-import time
-
-from progressbar import pasek_postepu_instant
-from urzadzenie import Urzadzenie
+from rozne.progressbar import pasek_postepu_instant
+from urzadzenia.urzadzenie import Urzadzenie
 
 
 class Mlynek(Urzadzenie):
-
     ziarna_kawy = 0;
     zmielona_kawa = 0;
 
     def __init__(self):
         self.oproznianie();
 
-    def wypelnianie(self, ilosc):
+    def wypelnianie(self, rodzaj_substancji, ilosc):
+        if rodzaj_substancji != 'ziarna_kawy':
+            raise TypeError('Nieznana substancja w młynku!')
         if ilosc <= 0:
             raise ValueError('Nie można zmielić zerowej ilości ziaren kawy');
         self.ziarna_kawy = ilosc;
@@ -44,20 +43,24 @@ class Mlynek(Urzadzenie):
 
     def oproznianie(self):
         print('Trwa opróżnianie młynka');
-        zawarte_ziarna = self.ziarna_kawy;
-        zawarte_mielone = self.zmielona_kawa;
+        return dict(substancja='zmielona_kawa',ilosc=self.zmielona_kawa);
+        # zawarte_ziarna = self.ziarna_kawy;
+        # zawarte_mielone = self.zmielona_kawa;
+        #
+        # if (zawarte_ziarna <= 0):
+        #     if (zawarte_mielone <= 0):
+        #         return;
+        #     else:
+        #         self.zmielona_kawa = 0;
+        #         return zawarte_mielone;
+        # else:
+        #     if (zawarte_mielone <= 0 ):
+        #         self.ziarna_kawy = 0;
+        #         return zawarte_ziarna;
+        #     else:
+        #         self.ziarna_kawy = 0;
+        #         self.zmielona_kawa = 0;
+        #         return zawarte_ziarna, zawarte_mielone;
 
-        if (zawarte_ziarna <= 0):
-            if (zawarte_mielone <= 0):
-                return;
-            else:
-                self.zmielona_kawa = 0;
-                return zawarte_mielone;
-        else:
-            if (zawarte_mielone <= 0 ):
-                self.ziarna_kawy = 0;
-                return zawarte_ziarna;
-            else:
-                self.ziarna_kawy = 0;
-                self.zmielona_kawa = 0;
-                return zawarte_ziarna, zawarte_mielone;
+    def zidentyfikuj(self):
+        return 'młynek';

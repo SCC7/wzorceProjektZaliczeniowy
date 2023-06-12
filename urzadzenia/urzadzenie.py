@@ -1,7 +1,4 @@
-import time
 from abc import ABC, abstractmethod
-
-from progressbar import pasek_postepu_instant
 
 
 class Urzadzenie(ABC):
@@ -10,7 +7,7 @@ class Urzadzenie(ABC):
         pass;
 
     @abstractmethod
-    def wypelnianie(self, ilosc):
+    def wypelnianie(self, rodzaj_substancji, ilosc):
         pass;
 
     @abstractmethod
@@ -20,3 +17,7 @@ class Urzadzenie(ABC):
     @abstractmethod
     def oproznianie(self):
        pass;
+
+    @abstractmethod
+    def zidentyfikuj(self):
+        pass;

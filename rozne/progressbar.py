@@ -41,11 +41,11 @@ def printProgressBar(iteration, total, prefix='', suffix='', decimals=1, length=
 #     printProgressBar(i + 1, l, prefix = 'Progress:', suffix = 'Complete', length = 50)
 
 def pasek_postepu_instant(dlugosc=50, prefixProcesu='PROCES'):
-    points = list(range(0, dlugosc));
+    points = list(range(0, int(dlugosc)));
     pointsLength = len(points);
     # nazwaProcesu = 'Postęp mielenia ziaren kawy:'
     printProgressBar(0, pointsLength, prefix=prefixProcesu, length=50);
     for i, points in enumerate(points):
-        time.sleep(0.1);
+        time.sleep(0.01);
         printProgressBar(0 + i, pointsLength, prefix=prefixProcesu, length=50);
     printProgressBar(pointsLength, pointsLength, prefix=prefixProcesu, length=50);
