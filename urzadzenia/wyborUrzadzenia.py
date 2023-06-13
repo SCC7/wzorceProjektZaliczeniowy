@@ -7,7 +7,6 @@ class WybierzUrzadzenie:
     def __init__(self, urzadzenie: Urzadzenie) -> None:
         self._urzadzenie = urzadzenie;
 
-
     # def reset(self):
     #     self._product = Product1()
     #

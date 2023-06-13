@@ -2,24 +2,34 @@ from przepisy.napoj import napojPrzepis
 
 
 class Americano(napojPrzepis):
-    rozmiar = {'m':150, 'l':300}
+    # rozmiar = {'m':150, 'l':300}
     # def __init__(self):
     #     print('DEBUG: espresso init');
     #     return;
+    def __init__(self, rozmiar):
+        # print('DEBUG: espresso init');
+        # print(f'DEBUG typ wartości rozmiar to {rozmiar}')
+        if not isinstance(rozmiar, str):
+            raise TypeError('Rozmiar kubka musi być podany jako litera');
+        self.rozmiar = rozmiar;
+        return;
 
     def zdefiniuj_wymagania(self):
         return 'mlynek komora_cisnieniowa';
 
-    def wykonaj_pierwszy_krok(self, rozmiar_kawy):
-        rozkaz = dict(urzadzenie='mlynek', ilosc=rozmiar_kawy);
+    # def wykonaj_pierwszy_krok(self, rozmiar_kawy):
+    #     rozkaz = dict(urzadzenie='mlynek', ilosc=rozmiar_kawy);
+    #     return rozkaz;
+    def wykonaj_pierwszy_krok(self, ilosc):
+        rozkaz = dict(urzadzenie='mlynek', substancja='ziarna_kawy', ilosc=self.podaj_rozmiar()/2);
         return rozkaz;
 
     def wykonaj_drugi_krok(self, ilosc):
-        rozkaz = dict(urzadzenie='komora_cisnieniowa', rodzaj='zmielona_kawa');
+        rozkaz = dict(urzadzenie='komora_cisnieniowa', substancja='zmielona_kawa', ilosc=self.podaj_rozmiar()/2);
         return rozkaz;
 
     def wykonaj_trzeci_krok(self, ilosc):
-        rozkaz = dict(urzadzenie='komora_cisnieniowa', rodzaj='woda');
+        rozkaz = dict(urzadzenie='komora_cisnieniowa', substancja='woda', ilosc=self.podaj_rozmiar()/2);
         return rozkaz;
 
     def nazwa(self):
@@ -28,8 +38,8 @@ class Americano(napojPrzepis):
     def rodzaj(self):
         return 'n';
 
-    def rozmiar(self, rozmiar):
-        if rozmiar == 'm':
+    def podaj_rozmiar(self):
+        if self.rozmiar == 'm':
             return 150;
-        if rozmiar == 'l':
+        if self.rozmiar == 'l':
             return 300;

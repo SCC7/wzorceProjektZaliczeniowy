@@ -26,7 +26,7 @@ class Mlynek(Urzadzenie):
         # w prawdziwym ekspresie działoby się tutaj coś ciekawszego
         self.zmielona_kawa = self.ziarna_kawy;
 
-        pasek_postepu_instant(dlugosc=self.ziarna_kawy, prefixProcesu='Postęp mielenia ziaren kawy');
+        pasek_postepu_instant(dlugosc=self.ziarna_kawy, prefix_procesu='Postęp mielenia ziaren kawy');
 
         # points = list(range(0, self.ziarna_kawy));
         # pointsLength = len(points);
@@ -37,12 +37,12 @@ class Mlynek(Urzadzenie):
         #     printProgressBar(0 + i, pointsLength, prefix=nazwaProcesu, length=50);
         # printProgressBar(pointsLength, pointsLength, prefix=nazwaProcesu, length=50);
 
-        print('Zmielono kawę');
+        # print('Zmielono kawę');
         return;
         # return zmielona_kawa;
 
     def oproznianie(self):
-        print('Trwa opróżnianie młynka');
+        # print('Trwa opróżnianie młynka');
         return dict(substancja='zmielona_kawa',ilosc=self.zmielona_kawa);
         # zawarte_ziarna = self.ziarna_kawy;
         # zawarte_mielone = self.zmielona_kawa;

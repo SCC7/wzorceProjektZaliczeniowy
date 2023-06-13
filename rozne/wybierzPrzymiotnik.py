@@ -1,7 +1,7 @@
 def wybierzPrzymiotnik(plec):
-    if (plec == 'm'):
+    if plec == 'm':
         return 'twój';
-    if (plec == 'n'):
+    if plec == 'n':
         return "twoje";
-    if (plec == 'ż'):
+    if plec == 'ż':
         return 'twoja';

@@ -26,34 +26,34 @@ class komoraCisnieniowa(Urzadzenie):
         # print('SUBST: ')
         # print(substancja)
         # print(self.rodzaj_zawartosci);
-        if self.rodzaj_zawartosci == 'kawa':
+        if self.rodzaj_zawartosci == 'zmielona_kawa':
             timer = substancja * 2;
-            pasek_postepu_instant(dlugosc=timer, prefixProcesu='Postęp parzenia kawy');
-            print('Zaparzono kawę')
-            self.rodzaj_zawartosci = 'płynna kawa'
+            pasek_postepu_instant(dlugosc=timer, prefix_procesu='Postęp parzenia kawy');
+            # print('Zaparzono kawę')
+            self.rodzaj_zawartosci = 'płynna_kawa'
             return;
         elif self.rodzaj_zawartosci == 'czekolada':
             timer = substancja;
-            pasek_postepu_instant(dlugosc=timer, prefixProcesu='Postęp parzenia czekolady');
-            print('Zaparzono czekoladę')
-            self.rodzaj_zawartosci = 'płynna czekolada'
+            pasek_postepu_instant(dlugosc=timer, prefix_procesu='Postęp parzenia czekolady');
+            # print('Zaparzono czekoladę')
+            self.rodzaj_zawartosci = 'płynna_czekolada'
             return;
         elif self.rodzaj_zawartosci == 'woda':
             timer = substancja / 2;
-            pasek_postepu_instant(dlugosc=timer, prefixProcesu='Postęp nalewania gorącej wody');
-            print('Nalano gorącej wody')
-            self.rodzaj_zawartosci = 'gorąca woda'
+            pasek_postepu_instant(dlugosc=timer, prefix_procesu='Postęp nalewania gorącej wody');
+            # print('Nalano gorącej wody')
+            self.rodzaj_zawartosci = 'gorąca_woda'
             return;
         elif self.rodzaj_zawartosci == 'mleko':
             timer = substancja / 2;
-            pasek_postepu_instant(dlugosc=timer, prefixProcesu='Postęp nalewania gorącego mleka');
-            print('Nalano gorącego mleka')
-            self.rodzaj_zawartosci = 'gorące mleko'
+            pasek_postepu_instant(dlugosc=timer, prefix_procesu='Postęp nalewania gorącego mleka');
+            # print('Nalano gorącego mleka')
+            self.rodzaj_zawartosci = 'gorące_mleko'
             return;
 
         return;
 
     def oproznianie(self):
-        print('Trwa opróżnianie komory ciśnieniowej');
+        # print('Trwa opróżnianie komory ciśnieniowej');
         # return self.wprowadzona_substancja;
         return dict(substancja=self.rodzaj_zawartosci, ilosc=self.wprowadzona_substancja);

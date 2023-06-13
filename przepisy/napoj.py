@@ -1,4 +1,4 @@
-import abc
+from abc import abstractmethod, ABCMeta
 
 
 # bridge
@@ -25,36 +25,41 @@ class napoj:
     def podaj_rodzaj(self):
         return self._imp.rodzaj();
 
-    def podaj_rozmiar(self, rozmiar_napoju):
-        return self._imp.rozmiar(rozmiar_napoju);
+    def podaj_rozmiar(self):
+        return self._imp.podaj_rozmiar();
 
 
 # implementacja abstrakcyjna
-class napojPrzepis(metaclass=abc.ABCMeta):
-    @abc.abstractmethod
+class napojPrzepis(metaclass=ABCMeta):
+
+    @abstractmethod
+    def __init__(self, rozmiar):
+        pass;
+
+    @abstractmethod
     def zdefiniuj_wymagania(self):
         pass
 
-    @abc.abstractmethod
+    @abstractmethod
     def wykonaj_pierwszy_krok(self, ilosc):
         pass
 
-    @abc.abstractmethod
+    @abstractmethod
     def wykonaj_drugi_krok(self, ilosc):
         pass
 
-    @abc.abstractmethod
+    @abstractmethod
     def wykonaj_trzeci_krok(self, ilosc):
         pass
 
-    @abc.abstractmethod
+    @abstractmethod
     def nazwa(self):
         pass
 
-    @abc.abstractmethod
+    @abstractmethod
     def rodzaj(self):
         pass
 
-    @abc.abstractmethod
-    def rozmiar(self, rozmiar):
+    @abstractmethod
+    def podaj_rozmiar(self):
         pass

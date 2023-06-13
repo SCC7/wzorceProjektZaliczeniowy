@@ -1,40 +1,37 @@
 from przepisy.napoj import napojPrzepis
 
 
-class Espresso(napojPrzepis):
+class Capucino(napojPrzepis):
 
     def __init__(self, rozmiar):
-        # print('DEBUG: espresso init');
-        # print(f'DEBUG typ wartości rozmiar to {rozmiar}')
         if not isinstance(rozmiar, str):
             raise TypeError('Rozmiar kubka musi być podany jako litera');
         self.rozmiar = rozmiar;
         return;
 
     def zdefiniuj_wymagania(self):
-        return 'mlynek komora_cisnieniowa';
+        return 'mlynek komora_cisnieniowa spieniacz';
 
     def wykonaj_pierwszy_krok(self, ilosc):
-        rozkaz = dict(urzadzenie='mlynek', substancja='ziarna_kawy', ilosc=self.podaj_rozmiar());
+        rozkaz = dict(urzadzenie='mlynek', substancja='ziarna_kawy', ilosc=self.podaj_rozmiar()*2/3);
         return rozkaz;
 
     def wykonaj_drugi_krok(self, ilosc):
-        rozkaz = dict(urzadzenie='komora_cisnieniowa', substancja='zmielona_kawa', ilosc=self.podaj_rozmiar());
+        rozkaz = dict(urzadzenie='komora_cisnieniowa', substancja='zmielona_kawa', ilosc=self.podaj_rozmiar()*2/3);
         return rozkaz;
 
     def wykonaj_trzeci_krok(self, ilosc):
-        return;
+        rozkaz = dict(urzadzenie='spieniacz', substancja='mleko', ilosc=self.podaj_rozmiar() / 3);
+        return rozkaz;
 
     def nazwa(self):
-        return 'espresso';
+        return 'capucino';
 
     def rodzaj(self):
         return 'n';
 
     def podaj_rozmiar(self):
         if self.rozmiar == 'm':
-            return 50;
+            return 150;
         if self.rozmiar == 'l':
-            return 100;
-        raise ValueError('Brak rozmiaru?')
-
+            return 300;
