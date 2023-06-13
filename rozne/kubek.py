@@ -1,12 +1,12 @@
 class Kubek:
-    rozmiar = 0;
+    rozmiar = 300;
     zawartosc = dict();
 
     def __init__(self, rozmiar):
         # print(f'DEBUG kubek.rozmiar = {rozmiar}')
         if not isinstance(rozmiar, int) and not isinstance(rozmiar, float):
             raise TypeError('Zły typ danych został wprowadzony jako rozmiar kubka.');
-        if 0 > rozmiar > 400:
+        if not 0 < rozmiar < 400:
             raise ValueError('Zły rozmiar kubka!');
         self.rozmiar = rozmiar;
         self.zawartosc = dict();

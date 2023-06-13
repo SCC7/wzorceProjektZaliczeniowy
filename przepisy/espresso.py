@@ -7,7 +7,9 @@ class Espresso(napojPrzepis):
         # print('DEBUG: espresso init');
         # print(f'DEBUG typ wartości rozmiar to {rozmiar}')
         if not isinstance(rozmiar, str):
-            raise TypeError('Rozmiar kubka musi być podany jako litera');
+            raise TypeError('Rozmiar kubka musi być podany jako litera!');
+        if not rozmiar == 'm' and not rozmiar == 'l':
+            raise ValueError('Rozmiar kubka musi być "m" albo "l"!')
         self.rozmiar = rozmiar;
         return;
 

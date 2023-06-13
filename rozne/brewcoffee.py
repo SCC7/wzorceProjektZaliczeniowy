@@ -39,6 +39,7 @@ def tworzNapoj(przepis):
     # print(f'Czy rozmiar_napoju to int? {isinstance(rozmiar_napoju, int)}')
     # print(f'Czy rozmiar_napoju to float? {isinstance(rozmiar_napoju, float)}')
     # print(f'DEBUG brewcoffee.rozmiar = {rozmiar}');
+    print(f'Rozmiar = {ten_napoj.podaj_rozmiar()}')
     kubek = Kubek(ten_napoj.podaj_rozmiar());
 
     # wymagane_urzadzenia = ten_napoj.zdefiniuj_wymagania().split();

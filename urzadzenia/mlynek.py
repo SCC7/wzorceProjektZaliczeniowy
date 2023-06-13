@@ -18,6 +18,8 @@ class Mlynek(Urzadzenie):
         return;
 
     def dzialanie(self):
+        if self.ziarna_kawy <= 0:
+            raise ValueError('W młynku niczego nie ma!')
         # self.ziarna_kawy = ilosc;
         # if self.ziarna_kawy < 0:
         #     raise ValueError('Nie można zmielić zerowej ilości ziaren kawy');
@@ -43,6 +45,8 @@ class Mlynek(Urzadzenie):
 
     def oproznianie(self):
         # print('Trwa opróżnianie młynka');
+        if self.zmielona_kawa == 0:
+            return;
         return dict(substancja='zmielona_kawa',ilosc=self.zmielona_kawa);
         # zawarte_ziarna = self.ziarna_kawy;
         # zawarte_mielone = self.zmielona_kawa;
